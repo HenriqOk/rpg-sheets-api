@@ -20,6 +20,6 @@ class Api::SheetsController < Api::BaseController
   private
 
   def permitted_params
-    params.require(:sheet).permit(Sheet.attribute_names.map(&:to_sym))
+    params.require(:sheet).permit(:name, :level, :attack_bonus, :armor_class, :hp, :mp, :state, :adventure_id, :player_id)
   end
 end
