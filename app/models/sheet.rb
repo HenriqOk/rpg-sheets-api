@@ -2,7 +2,7 @@ class Sheet
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  VALID_STATES = ["Conscious", "Unconscious", "Stunned", "Feared", "Sleeping"]
+  VALID_STATES = ["Conscious", "Unconscious", "Stunned", "Feared", "Sleeping", "Dead"]
 
   #Fields
   field :name, type: String
@@ -17,7 +17,7 @@ class Sheet
   belongs_to :player, class_name: "User"
   belongs_to :adventure
 
-  # validates :player, presence: true
+  validates :player, presence: true
   validates :adventure, presence: true
   validates_inclusion_of :state, in: VALID_STATES
 end

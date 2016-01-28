@@ -12,4 +12,9 @@ class Api::UsersController < Api::BaseController
   def destroy
   end
 
+  private
+
+  def permitted_params
+    params.require(:user).permit(User.attribute_names.map(&:to_sym))
+  end
 end
