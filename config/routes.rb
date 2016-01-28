@@ -14,6 +14,12 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
+  namespace :api, defaults: { format: 'json' } do
+    resources :users, except: [:new, :edit, :index]
+    resources :adventures, except: [:new, :edit, :index]
+    resources :sheets, except: [:new, :edit, :index]
+  end
+
   # Example resource route with options:
   #   resources :products do
   #     member do

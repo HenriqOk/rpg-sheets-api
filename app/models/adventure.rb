@@ -6,5 +6,5 @@ class Adventure
   has_many :players, class_name: "User"
   has_many :sheets
 
-
+  validates :master, presence: true
 end
