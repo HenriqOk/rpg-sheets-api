@@ -20,7 +20,7 @@ class Api::AdventuresController < Api::BaseController
   private
 
   def permitted_params
-    params.require(:adventure).permit(Adventure.attribute_names.map(&:to_sym))
+    params.require(:adventure).permit(:name, :master_id, player_ids: [])
   end
 
 end

@@ -20,6 +20,6 @@ class Api::UsersController < Api::BaseController
   private
 
   def permitted_params
-    params.require(:user).permit(User.attribute_names.map(&:to_sym))
+    params.require(:user).permit(:name, adventure_ids: [])
   end
 end

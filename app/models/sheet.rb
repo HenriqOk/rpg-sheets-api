@@ -16,7 +16,7 @@ class Sheet
 
   # Associations
   belongs_to :player, class_name: "User"
-  belongs_to :adventure
+  embedded_in :adventure
 
   validates :player, presence: true
   validates :adventure, presence: true
