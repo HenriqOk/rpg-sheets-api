@@ -2,6 +2,7 @@ class Sheet
   include Mongoid::Document
   include Mongoid::Timestamps
 
+  DEFAULT_STATE_INDEX = 0
   VALID_STATES = ["Conscious", "Unconscious", "Stunned", "Feared", "Sleeping", "Dead"]
 
   #Fields
@@ -11,7 +12,7 @@ class Sheet
   field :armor_class, type: Integer
   field :hp, type: Integer
   field :mp, type: Integer
-  field :state, type: String
+  field :state, type: String, default: VALID_STATES[DEFAULT_STATE_INDEX]
 
   # Associations
   belongs_to :player, class_name: "User"
