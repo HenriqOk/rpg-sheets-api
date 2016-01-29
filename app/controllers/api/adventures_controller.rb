@@ -17,7 +17,7 @@ class Api::AdventuresController < Api::BaseController
 
   def destroy
     Adventure.find(params[:id]).destroy!(params[:id])
-    render json: {}
+    render nothing: true, status: 204
   end
 
   private

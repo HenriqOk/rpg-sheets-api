@@ -57,6 +57,7 @@ describe Api::UsersController, :type => :controller do
     it "destroys the given user" do
       delete :destroy, id: user.id
       expect(User.where(id: user.id).count).to eq 0
+      expect(response.status).to eq 204
     end
   end
 

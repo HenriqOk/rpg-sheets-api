@@ -59,6 +59,7 @@ describe Api::AdventuresController, :type => :controller do
     it "destroys the given adventure" do
       delete :destroy, id: adventure.id
       expect(Adventure.where(id: adventure.id).count).to eq 0
+      expect(response.status).to eq 204
     end
   end
 

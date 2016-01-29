@@ -1,5 +1,4 @@
 class Api::UsersController < Api::BaseController
-  # respond_to :json
 
   def create
     @user = User.create!(permitted_params)
@@ -18,7 +17,7 @@ class Api::UsersController < Api::BaseController
 
   def destroy
     User.find(params[:id]).destroy!(params[:id])
-    render json: {}
+    render nothing: true, status: 204
   end
 
   private
