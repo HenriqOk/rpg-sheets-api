@@ -6,7 +6,5 @@ FactoryGirl.define do
       "Adventure #{i}"
     end
     master { FactoryGirl.create(:user) }
-    # players { FactoryGirl.create_list(:user, 2) }
-    sheets { FactoryGirl.create_list(:sheet, 3) }
   end
 end

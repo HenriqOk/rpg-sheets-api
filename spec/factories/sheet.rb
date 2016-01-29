@@ -11,5 +11,8 @@ FactoryGirl.define do
     hp 80
     mp 0
     state Sheet::VALID_STATES[Sheet::DEFAULT_STATE_INDEX]
+
+    player { FactoryGirl.create(:user) }
+    adventure { FactoryGirl.create(:adventure) }
   end
 end

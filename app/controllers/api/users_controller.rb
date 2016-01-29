@@ -1,7 +1,8 @@
 class Api::UsersController < Api::BaseController
+  # respond_to :json
 
   def create
-    respond_with User.create!(permitted_params)
+    respond_with :api, User.create!(permitted_params)
   end
 
   def show
