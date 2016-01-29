@@ -1,20 +1,23 @@
 class Api::AdventuresController < Api::BaseController
 
   def create
-    respond_with Adventure.create!(permitted_params)
+    @adventure = Adventure.create!(permitted_params)
+    respond_with :api, @adventure
   end
 
   def show
-    respond_with Adventure.find(params[:id])
+    render json: Adventure.find(params[:id])
   end
 
   def update
-    adventure = Adventure.find(params[:id])
-    respond_with adventure.update!(permitted_params)
+    @adventure = Adventure.find(params[:id])
+    @adventure.update!(permitted_params)
+    respond_with :api, @adventure
   end
 
   def destroy
-    respond_with Adventure.destroy!(params[:id])
+    Adventure.find(params[:id]).destroy!(params[:id])
+    render json: {}
   end
 
   private
