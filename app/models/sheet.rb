@@ -19,6 +19,5 @@ class Sheet
   embedded_in :adventure
 
   validates :player, presence: true
-  validates :adventure, presence: true
   validates_inclusion_of :state, in: VALID_STATES
 end

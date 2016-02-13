@@ -1,15 +1,22 @@
 class Api::SheetsController < Api::BaseController
 
   def create
-    respond_with Sheet.create!(permitted_params)
+    adventure = Adventure.find(params[:adventure_id])
+    @new_sheet = Sheet.new(permitted_params)
+
+    adventure.sheets << @new_sheet
+    adventure.save!
+
+    respond_with(:api, adventure, @new_sheet)
   end
 
   def show
-    respond_with Sheet.find(params[:id])
+    respond_with Adventure.find(params[:adventure_id]).sheets.find(params[:id])
   end
 
   def update
-    adventure = Sheet.find(params[:id])
+    adventure = Adventure.find(params[:adventure_id])
+
     respond_with adventure.update!(permitted_params)
   end
 

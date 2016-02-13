@@ -16,8 +16,9 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: 'json' } do
     resources :users, except: [:new, :edit, :index]
-    resources :adventures, except: [:new, :edit, :index]
-    resources :sheets, except: [:new, :edit, :index]
+    resources :adventures, except: [:new, :edit, :index] do
+      resources :sheets, except: [:new, :edit, :index]
+    end    
   end
 
   # Example resource route with options:
