@@ -23,8 +23,13 @@ describe Api::SheetsController, :type => :controller do
       expect(response).to redirect_to api_adventure_sheet_path(adventure_id: new_sheet.adventure.id, id: new_sheet.id)
     end
 
+  end
 
-
+  describe "GET #show" do
+    it "respond with th sheets json" do
+      get :show, adventure_id: sheet.adventure.id, id: sheet.id
+      expect(response.body).to eq sheet.to_json
+    end    
   end
 
 end

@@ -7,11 +7,12 @@ class Api::SheetsController < Api::BaseController
     adventure.sheets << @new_sheet
     adventure.save!
 
-    respond_with(:api, adventure, @new_sheet)
+    respond_with :api, adventure, @new_sheet
   end
 
   def show
-    respond_with Adventure.find(params[:adventure_id]).sheets.find(params[:id])
+    adventure = Adventure.find(params[:adventure_id])
+    render json: adventure.sheets.find(params[:id])
   end
 
   def update
