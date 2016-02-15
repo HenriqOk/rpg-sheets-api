@@ -23,7 +23,6 @@ class Api::SheetsController < Api::BaseController
   end
 
   def destroy
-    byebug
     Adventure.find(params[:adventure_id]).sheets.find(params[:id]).destroy!
     render nothing: true, status: 204
   end
