@@ -17,12 +17,15 @@ class Api::SheetsController < Api::BaseController
 
   def update
     adventure = Adventure.find(params[:adventure_id])
-
-    respond_with adventure.update!(permitted_params)
+    sheet = adventure.sheets.find(params[:id])
+    sheet.update!(permitted_params)
+    respond_with :api, adventure, sheet
   end
 
   def destroy
-    respond_with Sheet.destroy!(params[:id])
+    byebug
+    Adventure.find(params[:adventure_id]).sheets.find(params[:id]).destroy!
+    render nothing: true, status: 204
   end
 
   private
