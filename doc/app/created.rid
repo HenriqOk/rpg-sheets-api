@@ -1,0 +1,12 @@
+Thu, 18 Feb 2016 12:15:54 -0200
+README.rdoc	Thu, 28 Jan 2016 14:36:37 -0200
+app/controllers/api/adventures_controller.rb	Fri, 29 Jan 2016 15:29:42 -0200
+app/controllers/api/base_controller.rb	Fri, 29 Jan 2016 13:43:17 -0200
+app/controllers/api/sheets_controller.rb	Mon, 15 Feb 2016 16:20:00 -0200
+app/controllers/api/users_controller.rb	Fri, 29 Jan 2016 15:29:14 -0200
+app/controllers/application_controller.rb	Fri, 29 Jan 2016 13:42:00 -0200
+app/helpers/application_helper.rb	Thu, 28 Jan 2016 14:36:37 -0200
+app/models/adventure.rb	Thu, 28 Jan 2016 16:57:36 -0200
+app/models/sheet.rb	Mon, 15 Feb 2016 15:05:58 -0200
+app/models/user.rb	Thu, 28 Jan 2016 16:36:40 -0200
+lib/application_responder.rb	Fri, 29 Jan 2016 13:42:00 -0200
