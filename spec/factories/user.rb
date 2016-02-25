@@ -5,5 +5,12 @@ FactoryGirl.define do
     sequence :name do |i|
       "User #{i}"
     end
+
+    sequence :email do |i|
+      "user#{i}@com.br"
+    end
+
+    password "123123123"
+
   end
 end
