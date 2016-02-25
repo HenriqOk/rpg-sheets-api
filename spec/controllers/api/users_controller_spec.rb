@@ -5,10 +5,12 @@ describe Api::UsersController, :type => :controller do
 
   describe "POST #create" do
     let(:new_user_name) { "Henrique" }
+    let(:new_user_email) { "henrique@com.br" }
+    let(:new_user_password) { "123123123" }
     let(:adventures_ids) { FactoryGirl.create_list(:adventure, 3).map(&:id) }
 
     before(:each) do
-      params = {user: { name: new_user_name, adventure_ids: adventures_ids } }
+      params = {user: {email: new_user_email, password: new_user_password, password_confirmation: new_user_password, name: new_user_name, adventure_ids: adventures_ids } }
       post :create, params
     end
 
@@ -16,6 +18,8 @@ describe Api::UsersController, :type => :controller do
       new_user = assigns(:user)
 
       expect(new_user.name).to eq new_user_name
+      expect(new_user.email).to eq new_user_email
+      expect(new_user.valid_password?(new_user_password)).to eq true
       adventures_ids.each { |adventure_id| expect(new_user.adventure_ids).to include adventure_id }
     end
 

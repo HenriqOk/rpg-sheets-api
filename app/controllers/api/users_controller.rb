@@ -23,6 +23,6 @@ class Api::UsersController < Api::BaseController
   private
 
   def permitted_params
-    params.require(:user).permit(:name, adventure_ids: [])
+    params.require(:user).permit(:email, :password, :password_confirmation, :name, adventure_ids: [])
   end
 end
