@@ -2,6 +2,11 @@ require 'spec_helper'
 
 describe Api::AdventuresController, :type => :controller do
   let(:adventure) { FactoryGirl.create(:adventure) }
+  let(:user) { FactoryGirl.create(:user) }
+
+  before(:each) do
+    sign_in user
+  end
 
   describe "POST #create" do
     let(:new_adventure_name) { "O covil do Terceiro" }
