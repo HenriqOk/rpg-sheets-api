@@ -1,5 +1,7 @@
 class Api::SheetsController < Api::BaseController
 
+  acts_as_token_authentication_handler_for User
+
   def create
     adventure = Adventure.find(params[:adventure_id])
     @new_sheet = Sheet.new(permitted_params)

@@ -3,6 +3,9 @@ require 'spec_helper'
 describe Api::SheetsController, :type => :controller do
 
   let(:sheet) { FactoryGirl.create(:sheet) }
+  before(:each) do
+    sign_in sheet.player
+  end
 
   describe "POST #create" do
 
